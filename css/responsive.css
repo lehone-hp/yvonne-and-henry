@@ -1,0 +1,687 @@
+/* =====================================================================
+   MARLEIGH / Wedding Invitation & RSVP HTML Template
+   File     : css/responsive.css   (generated from scss/responsive.scss)
+   Version  : 1.0.0
+   Updated  : 2 September 2026
+   Author   : rix_designs
+   Note     : Loads after css/style.css. Widths come from the $bp map in
+              abstracts/_variables.scss through the upto() mixin.
+
+   ---------------------------------------------------------------------
+   TABLE OF CONTENTS
+   ---------------------------------------------------------------------
+   01. Large desktop            (max-width: 1440px)
+   02. Small desktop            (max-width: 1200px)
+   03. Tablet landscape         (max-width: 1024px)
+   04. Tablet portrait          (max-width: 900px)
+   05. Large phone              (max-width: 767px)
+   06. Standard phone           (max-width: 575px)
+   07. Small phone              (max-width: 400px)
+   08. Landscape phone height
+   09. Pointer and hover capability
+   10. Wide screens             (min-width: 1801px)
+   ===================================================================== */
+/* =====================================================================
+   01. LARGE DESKTOP
+   Tighten the outer gutter and pull the hero asides closer in.
+   ===================================================================== */
+@media (max-width: 1440px) {
+  :root {
+    --gutter: 36px;
+    --section-y: 126px;
+  }
+  .hero__aside {
+    width: 170px;
+  }
+  .bar__inner {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  .menu {
+    gap: 26px;
+  }
+}
+/* =====================================================================
+   02. SMALL DESKTOP
+   The paired layouts stack here. Below roughly 1200px a two column
+   split leaves both sides too narrow to read comfortably.
+   ===================================================================== */
+@media (max-width: 1200px) {
+  .hero__inner {
+    gap: 48px;
+    text-align: center;
+  }
+  .hero__type {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+  .hero__eyebrow {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .hero__meta {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 44px;
+  }
+  .hero__note {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero__cta {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .hero__cue {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .hero__frame {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+  }
+  .hero__plate {
+    max-height: none;
+  }
+  .head--split {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .head--split > div {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+  .head--split .head__lead {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .head--split .head__controls,
+  .head--split > div + div {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .head__eyebrow {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .head__lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rsvp__grid,
+  .schedule__grid,
+  .contact__grid {
+    gap: 54px;
+  }
+  .schedule__aside {
+    position: static;
+  }
+  .rsvp__art,
+  .rsvp__panel,
+  .schedule__list,
+  .schedule__aside,
+  .contact__intro,
+  .contact__grid > .form--card {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    max-width: none;
+  }
+  .pair__grid {
+    gap: 40px;
+  }
+  .person--b {
+    margin-top: 0;
+  }
+  .journal__grid {
+    gap: 38px;
+  }
+  .post--lead {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+  .row-story {
+    gap: 0 88px;
+  }
+}
+/* =====================================================================
+   03. TABLET LANDSCAPE
+   The bar hands its links to the full screen sheet.
+   ===================================================================== */
+@media (max-width: 1024px) {
+  .menu {
+    display: none;
+  }
+  .burger {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  .wordmark {
+    position: static;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: left;
+  }
+  .bar__inner {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 16px;
+  }
+  .bar .btn {
+    display: none;
+  }
+  .bar__side {
+    margin-left: auto;
+  }
+  .hero {
+    padding-top: 38px;
+    padding-bottom: 52px;
+  }
+  .hero::before {
+    display: none;
+  }
+  .hero__plate {
+    height: min(50vh, 430px);
+  }
+  .hero__seal {
+    width: 132px;
+    height: 132px;
+    right: -20px;
+    bottom: 20%;
+  }
+  .hero__seal text {
+    font-size: 21px;
+    letter-spacing: 0.07em;
+  }
+  .pair__grid {
+    gap: 44px;
+  }
+  .pair__centre {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  .counter__cell {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 40%;
+        -ms-flex: 1 1 40%;
+            flex: 1 1 40%;
+  }
+  .counter__cell:nth-child(3) {
+    border-left: 0;
+  }
+}
+/* =====================================================================
+   04. TABLET PORTRAIT
+   The timeline becomes a single column with the rule on the left.
+   ===================================================================== */
+@media (max-width: 900px) {
+  :root {
+    --section-y: 104px;
+  }
+  .rail-line {
+    left: 7px;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+  .row-story,
+  .row-story--flip {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    gap: 24px;
+    margin-bottom: 62px;
+    padding-left: 46px;
+  }
+  .row-story__body,
+  .row-story--flip .row-story__body {
+    text-align: left;
+    padding: 0;
+  }
+  .row-story--flip .row-story__body p {
+    margin-left: 0;
+  }
+  .row-story::after {
+    left: 0;
+    top: 12px;
+    margin: 0;
+  }
+  .mosaic {
+    grid-auto-rows: 56px;
+    gap: 10px;
+  }
+  .form--card {
+    padding: 36px;
+  }
+  .slotcard {
+    padding: 52px 30px 38px;
+  }
+}
+/* =====================================================================
+   05. LARGE PHONE
+   ===================================================================== */
+@media (max-width: 767px) {
+  .pagehead {
+    padding: 96px 0 64px;
+  }
+  .article__plate {
+    margin-top: -34px;
+    border-radius: var(--r-m);
+  }
+  .article__pull {
+    margin: 36px 0;
+    padding: 26px 24px;
+  }
+  .article__figure {
+    margin: 36px 0;
+  }
+  .article__foot {
+    margin-top: 42px;
+  }
+  .article__meta {
+    gap: 10px;
+  }
+  :root {
+    --gutter: 22px;
+    --section-y: 82px;
+    --bar-h: 68px;
+  }
+  body {
+    font-size: 16px;
+  }
+  img.bloom--lg {
+    width: 104px;
+  }
+  img.bloom--md {
+    width: 88px;
+  }
+  img.bloom--sm {
+    width: 72px;
+  }
+  img.bloom--xs {
+    width: 56px;
+  }
+  .getting {
+    padding: 34px 24px 28px;
+    margin-top: 40px;
+  }
+  .rail__inner {
+    height: 38px;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    gap: 14px;
+  }
+  .rail__inner span:nth-child(n+5) {
+    display: none;
+  }
+  .bar__inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .bar__progress {
+    height: 4px;
+  }
+  .wordmark__names {
+    font-size: 21px;
+  }
+  .wordmark__date {
+    display: none;
+  }
+  .burger em {
+    display: none;
+  }
+  .sheet {
+    padding-top: 104px;
+  }
+  .sheet__aside {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--rule-dark);
+    padding-top: 30px;
+  }
+  .hero {
+    padding-top: 26px;
+    padding-bottom: 40px;
+  }
+  .hero__inner {
+    gap: 34px;
+  }
+  .dragger {
+    margin-top: -34px;
+  }
+  .dragger__track {
+    padding: 46px 0 20px;
+  }
+  .hero__meta {
+    gap: 26px;
+    padding: 20px 0;
+  }
+  .hero__meta b {
+    font-size: 28px;
+  }
+  .hero__plate {
+    height: min(50vh, 400px);
+  }
+  .hero__seal {
+    width: 118px;
+    height: 118px;
+    right: -12px;
+    bottom: 18%;
+  }
+  .hero__seal text {
+    font-size: 24px;
+    letter-spacing: 0.05em;
+  }
+  .hero__seal i {
+    font-size: 34px;
+  }
+  .hero__seal text {
+    font-size: 10.6px;
+    letter-spacing: 0.16em;
+  }
+  .hero__cue {
+    margin-top: 42px;
+  }
+  .petal:nth-child(n+9) {
+    display: none;
+  }
+  .ribbon {
+    padding: 14px 0;
+  }
+  .ribbon__track span {
+    font-size: 19px;
+  }
+  .counter {
+    padding: 58px 0;
+  }
+  .counter__cell {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 44%;
+        -ms-flex: 1 1 44%;
+            flex: 1 1 44%;
+    border-left: 0;
+    padding: 14px 6px;
+  }
+  .counter__cell i {
+    margin-top: 8px;
+  }
+  .quote {
+    padding: 40px 28px 32px;
+  }
+  .card-p {
+    width: 250px;
+  }
+  .slot summary {
+    gap: 16px;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .slot summary b {
+    min-width: 70px;
+  }
+  .slot > p {
+    padding-left: 0;
+  }
+  .form--card {
+    padding: 28px 24px;
+  }
+  .field--half {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+  .lightbox {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    padding: 74px 16px 96px;
+  }
+  .lightbox__stage {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+  .lightbox__nav {
+    position: absolute;
+    bottom: 26px;
+  }
+  .lightbox__nav--prev {
+    left: calc(50% - 68px);
+  }
+  .lightbox__nav--next {
+    right: calc(50% - 68px);
+  }
+  .foot {
+    padding-top: 74px;
+  }
+  .foot__nav {
+    gap: 12px 22px;
+  }
+}
+/* =====================================================================
+   06. STANDARD PHONE
+   ===================================================================== */
+@media (max-width: 575px) {
+  .mosaic {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 74px;
+  }
+  .frame,
+  .frame:nth-child(n) {
+    grid-column: span 1;
+    grid-row: span 5;
+  }
+  .foot__bar {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+  .counter__foot {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 18px;
+  }
+  .head--split {
+    gap: 26px;
+  }
+}
+/* =====================================================================
+   07. SMALL PHONE
+   Nothing here may exceed the viewport once the gutters are taken off,
+   so every remaining fixed measure is brought down by hand.
+   ===================================================================== */
+@media (max-width: 400px) {
+  .wordmark__names {
+    font-size: 18px;
+  }
+  .card-p {
+    width: 216px;
+  }
+  .quote {
+    padding: 30px 20px 24px;
+  }
+  .pair__medal {
+    width: 104px;
+    height: 104px;
+  }
+  .pair__medal span {
+    font-size: 46px;
+  }
+  .hero__meta {
+    gap: 22px;
+  }
+  .hero__meta b {
+    font-size: 25px;
+  }
+  .hero__seal {
+    width: 104px;
+    height: 104px;
+  }
+  .hero__seal text {
+    font-size: 26px;
+    letter-spacing: 0.04em;
+  }
+  .hero__seal i {
+    font-size: 30px;
+  }
+  .counter__cell {
+    min-width: 0;
+  }
+  .contact__list b {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 100%;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+  .slot summary {
+    gap: 12px;
+  }
+  .getting__rows {
+    gap: 18px;
+  }
+  .btn {
+    padding: 15px 22px;
+  }
+  .article__pull {
+    padding: 22px 18px;
+  }
+}
+/* =====================================================================
+   08. LANDSCAPE PHONE HEIGHT
+   A short viewport is the one case where a tall portrait would force a
+   scroll before a single line has been read.
+   ===================================================================== */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero {
+    padding-top: 26px;
+    padding-bottom: 34px;
+  }
+  .hero__names {
+    font-size: clamp(38px, 7vw, 62px);
+  }
+  .hero__frame {
+    max-width: 300px;
+  }
+  .hero__seal {
+    width: 96px;
+    height: 96px;
+  }
+  .hero__seal text {
+    font-size: 27px;
+    letter-spacing: 0.03em;
+  }
+  .sheet {
+    padding-top: 84px;
+  }
+  .sheet__nav a {
+    padding: 12px 0;
+  }
+  .sheet__nav b {
+    font-size: clamp(24px, 5vw, 34px);
+  }
+  .lightbox__stage img {
+    max-height: 62vh;
+  }
+}
+/* =====================================================================
+   09. POINTER AND HOVER CAPABILITY
+   Touch screens keep the hints visible and lose pointer only effects.
+   ===================================================================== */
+@media (hover: none) {
+  .frame__hint {
+    opacity: 1;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+  .dragger {
+    cursor: default;
+  }
+  .menu__link,
+  .link,
+  .post .link {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+/* =====================================================================
+   10. WIDE SCREENS
+   ===================================================================== */
+@media (min-width: 1801px) {
+  :root {
+    --wrap: 1460px;
+    --section-y: 176px;
+  }
+  body {
+    font-size: 18px;
+  }
+  .hero__aside {
+    width: 230px;
+  }
+}
