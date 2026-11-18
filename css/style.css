@@ -4633,3 +4633,32 @@ img.bloom--md { width: 144px; }
     height: 340px;
   }
 }
+
+/* Contact card: names left, tappable number right */
+.contact__card .contact__list b {
+  -webkit-flex: 1 1 220px;
+      -ms-flex: 1 1 220px;
+          flex: 1 1 220px;
+  font-family: var(--body);
+  font-size: 15.5px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--forest);
+}
+.contact__card .contact__list b small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.contact__card .contact__list span {
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.contact__card .contact__list a {
+  font-size: 20px;
+  white-space: nowrap;
+}

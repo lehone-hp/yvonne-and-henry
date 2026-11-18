@@ -36,10 +36,10 @@
   const calmMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // The moment everything counts down to: Saturday 19 December 2026 in
-  // Buea (UTC+1, no daylight saving). The 10:00 start is a PLACEHOLDER
-  // until the real wedding time is confirmed. Keep php/calendar.php and
+  // Buea (UTC+1, no daylight saving), counting to the 1:30 pm white
+  // wedding. Keep php/calendar.php and
   // calendarFile() below in step with it.
-  const CEREMONY = new Date('2026-12-19T10:00:00+01:00');
+  const CEREMONY = new Date('2026-12-19T13:30:00+01:00');
 
   // Small throttle built on requestAnimationFrame for scroll handlers.
   function onFrame(fn) {
@@ -520,15 +520,25 @@
       'END:STANDARD',
       'END:VTIMEZONE',
 
-      // PLACEHOLDER times (10:00 to 22:00) until the real ones are set.
+      // White wedding, 1:30 pm to 4:00 pm.
       'BEGIN:VEVENT',
-      'UID:yvonne-and-henry-20261219T100000@wedding.local',
+      'UID:yvonne-and-henry-wedding-20261219T133000@wedding.local',
       'DTSTAMP:' + stamp,
-      'DTSTART;TZID=Africa/Douala:20261219T100000',
-      'DTEND;TZID=Africa/Douala:20261219T220000',
-      'SUMMARY:Yvonne and Henry are getting married',
+      'DTSTART;TZID=Africa/Douala:20261219T133000',
+      'DTEND;TZID=Africa/Douala:20261219T160000',
+      'SUMMARY:Yvonne and Henry: white wedding',
       'LOCATION:Presbyterian Church Buea Station\\, Buea\\, Cameroon',
-      'DESCRIPTION:White wedding at the Presbyterian Church Buea Station\\, then the reception at NASLA Multipurpose Hall. Times to be confirmed.',
+      'DESCRIPTION:White wedding of Yvonne and Henry at the Presbyterian Church Buea Station.',
+      'END:VEVENT',
+
+      // Reception from 5:00 pm. No end time was given, so none is set.
+      'BEGIN:VEVENT',
+      'UID:yvonne-and-henry-reception-20261219T170000@wedding.local',
+      'DTSTAMP:' + stamp,
+      'DTSTART;TZID=Africa/Douala:20261219T170000',
+      'SUMMARY:Yvonne and Henry: reception',
+      'LOCATION:NASLA Multipurpose Hall\\, Buea\\, Cameroon',
+      'DESCRIPTION:Reception for Yvonne and Henry at NASLA Multipurpose Hall.',
       'END:VEVENT',
       'END:VCALENDAR'
     ];
