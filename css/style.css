@@ -4787,9 +4787,10 @@ body:not(.is-loading) .hero__names .veil:nth-child(3) > span {
   z-index: 2;
 }
 
-/* Gallery masonry: staggered tall and short tiles in four columns. Every
-   eight tiles repeat the same pattern (tall, short, short, tall / tall, tall,
-   short, short) so all four columns end level. Tiles 17 and 18 sit centred. */
+/* Gallery masonry: staggered tall and short tiles in four columns. Each
+   block of eight tiles repeats the same pattern (tall, short, short, tall /
+   tall, tall, short, short) so all four columns end level. Three blocks make
+   24 tiles; the last two (25 and 26) are wide and fill the final row. */
 .frame:nth-child(n) {
   grid-column: span 1;
   grid-row: span 4;
@@ -4798,15 +4799,11 @@ body:not(.is-loading) .hero__names .veil:nth-child(3) > span {
 .frame:nth-child(8n+4),
 .frame:nth-child(8n+5),
 .frame:nth-child(8n+6),
-.frame:nth-child(17),
-.frame:nth-child(18) {
+.frame:nth-child(n+25) {
   grid-row: span 6;
 }
-.frame:nth-child(17) {
-  grid-column: 2;
-}
-.frame:nth-child(18) {
-  grid-column: 3;
+.frame:nth-child(n+25) {
+  grid-column: span 2;
 }
 .frame:nth-child(8n+2) img,
 .frame:nth-child(8n+3) img,
@@ -4814,6 +4811,10 @@ body:not(.is-loading) .hero__names .veil:nth-child(3) > span {
 .frame:nth-child(8n+8) img {
   -o-object-position: center 22%;
      object-position: center 22%;
+}
+.frame:nth-child(n+25) img {
+  -o-object-position: center 3%;
+     object-position: center 3%;
 }
 
 /* Flowers: larger, with a lighter shadow so they read as petals */
