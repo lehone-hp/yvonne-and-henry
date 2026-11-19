@@ -87,6 +87,11 @@
             justify-content: center;
   }
   .hero__frame {
+    /* stacked layout: show the couple's photo before the text */
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1;
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 100%;
         -ms-flex: 1 1 100%;

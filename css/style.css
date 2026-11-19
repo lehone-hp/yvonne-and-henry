@@ -4853,3 +4853,26 @@ img.bloom--md { width: 144px; }
             justify-content: center;
   }
 }
+
+/* Family photo, framed in an arch above the children's messages */
+.kids__photo {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 54px;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  border: 1px solid var(--rule-dark);
+  border-radius: 50% 50% 6px 6px/20% 20% 6px 6px;
+  -webkit-box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+.kids__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center top;
+     object-position: center top;
+}
