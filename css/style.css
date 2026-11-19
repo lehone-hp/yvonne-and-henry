@@ -4552,9 +4552,33 @@ body:not(.is-loading) .hero__names .veil:nth-child(3) > span {
   z-index: 2;
 }
 
-/* Gallery of four portrait photos: four equal tall tiles */
+/* Gallery masonry: staggered tall and short tiles in four columns. Every
+   eight tiles repeat the same pattern (tall, short, short, tall / tall, tall,
+   short, short) so all four columns end level. Tiles 17 and 18 sit centred. */
 .frame:nth-child(n) {
+  grid-column: span 1;
+  grid-row: span 4;
+}
+.frame:nth-child(8n+1),
+.frame:nth-child(8n+4),
+.frame:nth-child(8n+5),
+.frame:nth-child(8n+6),
+.frame:nth-child(17),
+.frame:nth-child(18) {
   grid-row: span 6;
+}
+.frame:nth-child(17) {
+  grid-column: 2;
+}
+.frame:nth-child(18) {
+  grid-column: 3;
+}
+.frame:nth-child(8n+2) img,
+.frame:nth-child(8n+3) img,
+.frame:nth-child(8n+7) img,
+.frame:nth-child(8n+8) img {
+  -o-object-position: center 22%;
+     object-position: center 22%;
 }
 
 /* Flowers: larger, with a lighter shadow so they read as petals */
