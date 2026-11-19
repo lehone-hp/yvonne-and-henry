@@ -565,6 +565,78 @@
   });
 
   /* ===================================================================
+     12b. BACKGROUND MUSIC
+     Browsers block sound until the visitor interacts with the page, so the
+     track tries to start on load and otherwise starts on the first tap,
+     click or key press. The round button mutes and unmutes it.
+     =================================================================== */
+  const bgm = $('#bgm');
+  const soundBtn = $('#soundToggle');
+  if (bgm && soundBtn) {
+    const TARGET_VOLUME = 0.45;
+    let wantsMusic = true;    // false once the visitor has switched it off
+    let fadeTimer = null;
+
+    const paint = () => {
+      const on = !bgm.paused;
+      soundBtn.setAttribute('aria-pressed', String(on));
+      soundBtn.setAttribute('aria-label', on ? 'Mute background music' : 'Play background music');
+    };
+
+    const fadeIn = () => {
+      window.clearInterval(fadeTimer);
+      bgm.volume = 0;
+      fadeTimer = window.setInterval(() => {
+        bgm.volume = Math.min(TARGET_VOLUME, bgm.volume + 0.03);
+        if (bgm.volume >= TARGET_VOLUME) window.clearInterval(fadeTimer);
+      }, 120);
+    };
+
+    const start = () => {
+      if (!wantsMusic || !bgm.paused) return Promise.resolve();
+      fadeIn();
+      return bgm.play().then(paint).catch(() => { bgm.volume = TARGET_VOLUME; paint(); });
+    };
+
+    soundBtn.hidden = false;
+    paint();
+
+    // Try straight away (works where the browser allows it).
+    start();
+
+    // Otherwise begin on the first real interaction.
+    const unlock = (e) => {
+      if (e && e.target && soundBtn.contains(e.target)) return;  // the button decides for itself
+      ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(ev =>
+        window.removeEventListener(ev, unlock, true));
+      start();
+    };
+    ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(ev =>
+      window.addEventListener(ev, unlock, { capture: true, passive: true }));
+
+    soundBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (bgm.paused) {
+        wantsMusic = true;
+        start();
+      } else {
+        wantsMusic = false;
+        bgm.pause();
+        paint();
+      }
+    });
+
+    // Pause when the tab is hidden, resume when it comes back.
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { bgm.pause(); paint(); }
+      else if (wantsMusic) start();
+    });
+
+    bgm.addEventListener('play', paint);
+    bgm.addEventListener('pause', paint);
+  }
+
+  /* ===================================================================
      13. SMALL ODDS AND ENDS
      =================================================================== */
   const year = $('#year');
