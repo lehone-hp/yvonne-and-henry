@@ -2310,9 +2310,9 @@ body:not(.is-loading) .hero__names .veil:nth-child(3) > span {
 
 .person__photo {
   position: relative;
-  aspect-ratio: 4/5;
+  aspect-ratio: 800/1350;
   margin: 0 0 32px;
-  border-radius: var(--r-arch);
+  border-radius: 50% 50% 6px 6px/20% 20% 6px 6px;
   overflow: hidden;
   border: 1px solid var(--rule-gold);
   background: var(--forest-2);
@@ -2323,8 +2323,8 @@ body:not(.is-loading) .hero__names .veil:nth-child(3) > span {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center 30%;
-     object-position: center 30%;
+  -o-object-position: center top;
+     object-position: center top;
   -webkit-transition: -webkit-transform 1.3s var(--ease);
   transition: -webkit-transform 1.3s var(--ease);
   transition: transform 1.3s var(--ease);
