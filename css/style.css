@@ -5244,3 +5244,19 @@ img.bloom--md { width: 144px; }
     transition: none;
   }
 }
+
+/* Menu open: the bar sits over the dark sheet, so its burger (now the close
+   "X") and wordmark switch to light colours to stay visible */
+body.is-locked .burger {
+  color: var(--ivory);
+}
+body.is-locked .wordmark,
+body.is-locked .wordmark__names {
+  color: var(--ivory);
+}
+body.is-locked .wordmark__date {
+  color: var(--gold-soft);
+}
+body.is-locked .burger__lines i {
+  height: 2px;
+}
