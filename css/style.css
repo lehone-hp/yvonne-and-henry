@@ -4854,8 +4854,10 @@ img.bloom--md { width: 144px; }
   }
 }
 
-/* Family photo, framed in an arch above the children's messages */
+/* Family photo, framed in an arch above the children's messages.
+   Shown on tablets and phones only (900px and below). */
 .kids__photo {
+  display: none;
   position: relative;
   width: 100%;
   max-width: 400px;
@@ -4875,4 +4877,25 @@ img.bloom--md { width: 144px; }
      object-fit: cover;
   -o-object-position: center top;
      object-position: center top;
+}
+@media (max-width: 900px) {
+  .kids__photo {
+    display: block;
+  }
+}
+
+/* Our children: the family photo as a very faint texture behind the section */
+#children {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+#children::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../assets/img/family.jpg") center 25%/cover no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
 }
