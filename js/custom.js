@@ -10,7 +10,7 @@
    TABLE OF CONTENTS
    ---------------------------------------------------------------------
    01. Helpers and shared state
-   02. Opening curtain
+   02. Opening envelope
    03. Sticky bar, reading progress
    04. Section spy (navigation highlighting)
    05. Menu sheet
@@ -52,19 +52,34 @@
   }
 
   /* ===================================================================
-     02. OPENING CURTAIN
-     Lifts once the page has painted, then leaves the document.
+     02. OPENING ENVELOPE
+     The page waits behind a sealed envelope. Breaking the seal is the
+     visitor's click, so it also starts the music (see 12b). The page
+     itself is revealed as the envelope fades away.
      =================================================================== */
-  function openCurtain() {
-    const curtain = $('#curtain');
+  const gate = $('#gate');
+  const sealBtn = $('#sealBtn');
+
+  function revealPage() {
     document.body.classList.remove('is-loading');
-    if (!curtain) return;
-    curtain.classList.add('is-open');
-    window.setTimeout(() => curtain.remove(), calmMotion ? 60 : 1600);
   }
-  window.addEventListener('load', () => window.setTimeout(openCurtain, calmMotion ? 0 : 520));
-  // Safety net in case the load event never fires.
-  window.setTimeout(openCurtain, 4000);
+
+  if (!gate || !sealBtn) {
+    revealPage();
+  } else {
+    sealBtn.focus({ preventScroll: true });
+    sealBtn.addEventListener('click', () => {
+      if (gate.classList.contains('is-opening')) return;
+      gate.classList.add('is-opening');
+      // Dispatched inside the click, so the browser treats the music as user-started.
+      document.dispatchEvent(new CustomEvent('invite:open'));
+      window.setTimeout(() => {
+        gate.classList.add('is-leaving');
+        revealPage();
+      }, calmMotion ? 150 : 1900);
+      window.setTimeout(() => gate.remove(), calmMotion ? 700 : 3000);
+    });
+  }
 
   /* ===================================================================
      03. STICKY BAR AND READING PROGRESS
@@ -601,8 +616,9 @@
     soundBtn.hidden = false;
     paint();
 
-    // Try straight away (works where the browser allows it).
-    start();
+    // The envelope's seal starts the music. Without the envelope, try straight away.
+    document.addEventListener('invite:open', () => { wantsMusic = true; start(); });
+    if (!$('#gate')) start();
 
     // Otherwise begin on the first real interaction.
     const unlock = (e) => {

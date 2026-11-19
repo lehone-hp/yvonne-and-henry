@@ -22,7 +22,7 @@
 <noscript>
   <style>
     body.is-loading{ overflow:auto; }
-    .curtain{ display:none; }
+    .gate{ display:none; }
     [data-reveal]{ opacity:1; transform:none; }
     .hero__names .veil > span{ transform:none; }
   </style>
@@ -31,14 +31,23 @@
 
 <body class="is-loading">
 
-<!-- OPENING CURTAIN -->
-<div class="curtain" id="curtain" aria-hidden="true">
-  <div class="curtain__seal">
-    <svg class="curtain__ring" viewBox="0 0 160 160" aria-hidden="true">
-      <circle cx="80" cy="80" r="70" fill="none" stroke="currentColor" stroke-width="1"/>
-    </svg>
-    <span class="curtain__mono">Y <i>&amp;</i> H</span>
+<!-- OPENING ENVELOPE: breaking the seal is the click that starts the music -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Invitation">
+  <div class="env" id="env">
+    <div class="env__back"></div>
+    <div class="env__letter" aria-hidden="true">
+      <span class="env__kicker">You are invited</span>
+      <span class="env__names">Yvonne <i>&amp;</i> Henry</span>
+      <span class="env__date">19 . 12 . 2026</span>
+    </div>
+    <div class="env__front"></div>
+    <div class="env__flap"></div>
+    <button class="env__seal" id="sealBtn" type="button" aria-label="Break the seal to open the invitation">
+      <span class="seal__half seal__half--l"><span class="seal__face"><b>Y<i>&amp;</i>H</b></span></span>
+      <span class="seal__half seal__half--r"><span class="seal__face"><b>Y<i>&amp;</i>H</b></span></span>
+    </button>
   </div>
+  <p class="gate__hint">Tap the seal to open</p>
 </div>
 
 <a class="skip-link" href="#main">Skip to the invitation</a>
